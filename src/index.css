@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  padding: 0px;
+  margin: 0;
+  background-color: whitesmoke;
+  color: #000000;
+  overflow-x: hidden;
+  /* box-sizing: border-box; */
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes custom-bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(5px);
+  }
+}
+
+/* Apply the custom bounce animation */
+.bounce-on-hover {
+  animation: custom-bounce 1s infinite;
+}
