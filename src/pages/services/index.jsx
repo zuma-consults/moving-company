@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 function Services() {
   let array = [img1, img2, img3, img4, img5, img6, img7, img8];
   return (
-    <main className="w-full h-full overflow-x-hidden">
+    <main className="w-full h-full ">
       {/* banner section */}
       <div className="md:px-20 h-[600px] w-full relative mb-10">
         <div
