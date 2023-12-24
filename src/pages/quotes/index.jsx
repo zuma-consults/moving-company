@@ -10,7 +10,7 @@ function Quotes() {
   }, []);
   let [active, setActive] = useState(1);
   return (
-    <main className="w-full h-[100vh]">
+    <main className="w-full">
       {/* navbar section */}
       {/*1st Get a Quote */}
       {active === 1 ? (
