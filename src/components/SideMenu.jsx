@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 
+// eslint-disable-next-line react/prop-types
 const SideMenu = ({ onClose, isOpen }) => {
   // Close the menu when clicking outside of it
   useEffect(() => {
+    console.log(isOpen);
     const handleOutsideClick = (e) => {
       if (!e.target.closest(".side-menu")) {
         onClose();
@@ -16,7 +18,7 @@ const SideMenu = ({ onClose, isOpen }) => {
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
-  }, [onClose]);
+  }, [onClose, isOpen]);
 
   return (
     <div
