@@ -5,7 +5,7 @@ function Applayout() {
   return (
     <div className="w-full h-full overflow-x-hidden">
       <Navbar />
-      <div>
+      <div className="w-full h-full overflow-x-hidden">
         <Outlet />
       </div>
       <Footer />

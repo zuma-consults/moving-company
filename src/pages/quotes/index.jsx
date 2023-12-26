@@ -110,7 +110,7 @@ function Quotes() {
               type="checkbox"
               id="Transportation"
             />
-            <label className="-ms-3" for="Transportation">
+            <label className="-ms-3" htmlFor="Transportation">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px] -mt-3">
                 Transportation & Storage
               </h3>
@@ -123,7 +123,7 @@ function Quotes() {
 
           <div className="flex md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
             <input className="p-5 w-40 h-12" type="checkbox" id="Cleaning" />
-            <label for="Cleaning">
+            <label htmlFor="Cleaning">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px]  -mt-3">
                 Cleaning Service
               </h3>
@@ -137,7 +137,7 @@ function Quotes() {
 
           <div className="flex  md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
             <input className="p-5 w-40 h-12" type="checkbox" id="flight" />
-            <label for="flight">
+            <label htmlFor="flight">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px] -mt-3">
                 Air flight Services
               </h3>
@@ -238,7 +238,7 @@ function Quotes() {
           </div>
           <div className="flex items-center justify-center md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
             <input className="p-5 w-40 h-12" type="checkbox" id="terms" />
-            <label className="text-xl" for="terms">
+            <label className="text-xl" htmlFor="terms">
               By submitting this form, I consent to receive further
               communication regarding the estimate I have requested and I agree
               to the storing and processing of my personal details by ATD as
