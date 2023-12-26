@@ -68,7 +68,7 @@ function Quotes() {
       {active === 1 ? (
         <div
           className="bg-whitesmoke mt-[100px]"
-          data-aos="slide-left"
+          data-aos="slide-up"
           data-aos-duration="1500"
           data-aos-easing="ease-out"
         >
