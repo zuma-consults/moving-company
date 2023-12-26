@@ -62,7 +62,7 @@ function Quotes() {
   let [active, setActive] = useState(1);
 
   return (
-    <main className="w-full h-[100vh] pt-[2rem]">
+    <main className="w-full">
       {/* navbar section */}
       {/*1st Get a Quote */}
       {active === 1 ? (
@@ -190,7 +190,7 @@ function Quotes() {
               id="Transportation"
               onChange={(e) => setTransportation(e.target.checked)}
             />
-            <label className="-ms-3" for="Transportation">
+            <label className="-ms-3" htmlFor="Transportation">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px] -mt-3">
                 Transportation & Storage
               </h3>
@@ -208,7 +208,7 @@ function Quotes() {
               id="Cleaning"
               onChange={(e) => setCleaning(e.target.checked)}
             />
-            <label for="Cleaning">
+            <label htmlFor="Cleaning">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px]  -mt-3">
                 Cleaning Service
               </h3>
@@ -227,7 +227,7 @@ function Quotes() {
               id="flight"
               onChange={(e) => setFlight(e.target.checked)}
             />
-            <label for="flight">
+            <label htmlFor="flight">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px] -mt-3">
                 Air flight Services
               </h3>
@@ -287,7 +287,7 @@ function Quotes() {
           {/* form section*/}
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
             <div className="flex flex-col md:gap-8 gap-5">
-              <label className="text-xl">Title</label>
+              <label className="text-xl" htmlFor="title">Title</label>
               <select
                 className="p-5 border rounded-[1rem]"
                 onChange={(e) => setSalutation(e.target.value)}
@@ -305,7 +305,7 @@ function Quotes() {
             </div>
 
             <div className="flex flex-col md:gap-8 gap-5">
-              <label className="text-xl">First Name</label>
+              <label className="text-xl" htmlFor="firstName">First Name</label>
               <input
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
@@ -316,7 +316,7 @@ function Quotes() {
             </div>
 
             <div className="flex flex-col md:gap-8 gap-5">
-              <label className="text-xl">Last Name</label>
+              <label className="text-xl" htmlFor="lastName">Last Name</label>
               <input
                 className="p-5 border rounded-[1rem]"
                 type="text"
@@ -351,7 +351,7 @@ function Quotes() {
               id="terms"
               onChange={(e) => setTerms(e.target.checked)}
             />
-            <label className="text-xl" for="terms">
+            <label className="text-xl" htmlFor="terms">
               By submitting this form, I consent to receive further
               communication regarding the estimate I have requested and I agree
               to the storing and processing of my personal details by ATD as

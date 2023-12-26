@@ -1,12 +1,12 @@
-import { FaArrowRightLong } from "react-icons/fa6";
+// import { FaArrowRightLong } from "react-icons/fa6";
 
 function Reviews() {
   return (
-    <div className="flex items-center justify-center flex-col my-10 md:px-20">
+    <div className="flex items-center justify-center flex-col my-10 md:px-20 p-3 md:p-0">
       <h1 className="font-normal md:text-[54px] text-[30px] mb-10">
         Client Review
       </h1>
-      <div className="w-full grid grid-cols-3 gap-5 my-10">
+      <div className="w-full grid md:grid-cols-3 gap-5 my-10 ">
         <div
           data-aos="fade-right"
           data-aos-duration="500"
@@ -20,11 +20,11 @@ function Reviews() {
             data-aos-easing="ease-in-out"
           >
             <img
-              src={"/loading.svg"}
+              src={"/person1.svg"}
               alt="ATD logistics hero image"
               style={{
-                width: "100%",
-                height: "100%",
+                width: "70",
+                height: "70",
                 objectFit: "cover",
                 objectPosition: "center",
               }}
@@ -52,11 +52,11 @@ function Reviews() {
             data-aos-easing="ease-in-out"
           >
             <img
-              src={"/loading.svg"}
+              src={"/person2.svg"}
               alt="ATD logistics hero image"
               style={{
-                width: "100%",
-                height: "100%",
+                width: "70",
+                height: "70",
                 objectFit: "cover",
                 objectPosition: "center",
               }}
@@ -84,11 +84,11 @@ function Reviews() {
             data-aos-easing="ease-in-out"
           >
             <img
-              src={"/loading.svg"}
+              src={"/person3.svg"}
               alt="ATD logistics hero image"
               style={{
-                width: "100%",
-                height: "100%",
+                width: "70",
+                height: "70",
                 objectFit: "cover",
                 objectPosition: "center",
               }}
@@ -104,10 +104,10 @@ function Reviews() {
           </div>
         </div>
       </div>
-      <div className="w-full flex gap-2 items-center justify-end cursor-pointer text-mc-primary1">
+      {/* <div className="w-full flex gap-2 items-center justify-end cursor-pointer text-mc-primary1">
         <span>View more</span>
         <FaArrowRightLong className="font-thin" />
-      </div>
+      </div> */}
     </div>
   );
 }

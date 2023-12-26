@@ -20,7 +20,7 @@ export default function Home() {
       <Guide />
       <Services />
       <Reviews />
-      <Contact />
+      <Contact contactImg={"/contact.svg"} showBottom={false} showTop={false} />
     </main>
   );
 }

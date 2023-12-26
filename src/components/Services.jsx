@@ -1,8 +1,8 @@
-import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 function Services() {
+
   return (
     <div className="flex items-center justify-center flex-col my-10 md:px-20 p-3">
       <h1 className="font-normal text-[54px]">Our Services</h1>
@@ -18,7 +18,7 @@ function Services() {
         <div
           className="relative col-span-1 bg-cover bg-center"
           style={{
-            backgroundImage: 'url("/heroImage.svg")',
+            backgroundImage: 'url("/relocation.svg")',
             position: "relative",
           }}
           data-aos="fade-right"
@@ -36,7 +36,7 @@ function Services() {
           data-aos-easing="ease-in-out"
           className="relative col-span-1 bg-cover bg-center"
           style={{
-            backgroundImage: 'url("/heroImage.svg")',
+            backgroundImage: 'url("/transportation.svg")',
             position: "relative",
           }}
         >
@@ -48,7 +48,7 @@ function Services() {
         <div
           className="relative col-span-1 bg-cover bg-center"
           style={{
-            backgroundImage: 'url("/heroImage.svg")',
+            backgroundImage: 'url("/cleaning.svg")',
             position: "relative",
           }}
           data-aos="fade-left"
