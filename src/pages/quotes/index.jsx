@@ -3,14 +3,66 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { countries } from "./data";
 
 function Quotes() {
+  const [movingFromCountry, setMovingFromCountry] = useState("");
+  const [movingFromCity, setMovingFromCity] = useState("");
+  const [movingToCountry, setMovingToCountry] = useState("");
+  const [movingToCity, setMovingToCity] = useState("");
+  const [movingDate, setMovingDate] = useState("");
+  const [movingItems, setMovingItems] = useState("");
+  const [transportation, setTransportation] = useState(false);
+  const [cleaning, setCleaning] = useState(false);
+  const [flight, setFlight] = useState(false);
+  const [salutation, setSalutation] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [alternateEmailAddress, setAlternateEmailAddress] = useState("");
+  const [terms, setTerms] = useState(false);
+
+  const handleFromCountryChange = (event) => {
+    event.preventDefault();
+    const selectedValue = event.target.value;
+    setMovingFromCountry(selectedValue);
+  };
+
+  const handleToCountryChange = (event) => {
+    event.preventDefault();
+    const selectedValue = event.target.value;
+    setMovingToCountry(selectedValue);
+  };
+
+  const additionalService = {
+    "Transportation ": transportation,
+    "Cleaning ": cleaning,
+    "Flight ": flight,
+  };
+
+  const data = {
+    movingFromCountry,
+    movingFromCity,
+    movingToCountry,
+    movingToCity,
+    movingDate,
+    movingItems,
+    salutation,
+    firstName,
+    lastName,
+    emailAddress,
+    alternateEmailAddress,
+    terms,
+    additionalService,
+  };
+
   useEffect(() => {
     AOS.init();
   }, []);
   let [active, setActive] = useState(1);
+
   return (
-    <main className="w-full h-[100vh]">
+    <main className="w-full h-[100vh] pt-[2rem]">
       {/* navbar section */}
       {/*1st Get a Quote */}
       {active === 1 ? (
@@ -30,40 +82,69 @@ function Quotes() {
             </p>
           </div>
           {/* form section*/}
-          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
-            <div className="flex flex-col md:gap-8 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 gap-10 pb-5 md:px-20 px-5 mx-10 mt-5">
+            <div className="flex flex-col md:gap-5 gap-2">
               <label className="text-xl">Moving from</label>
-              <select className="p-5">
-                <option>Country</option>
-                <option>Country</option>
-                <option>Country</option>
+              <select
+                className="border rounded-[1rem] p-5"
+                onChange={handleFromCountryChange}
+                value={movingFromCountry}
+              >
+                <option>Select a country</option>
+                {countries.map((country, index) => (
+                  <option key={index} value={country}>
+                    {country}
+                  </option>
+                ))}
               </select>
               <input
-                className="p-5"
+                className="p-5 border  rounded-[1rem]"
                 type="text"
                 placeholder="Enter a city..."
+                onChange={(e) => setMovingFromCity(e.target.value)}
+                value={movingFromCity}
               />
             </div>
 
-            <div className="flex flex-col md:gap-8 gap-5">
+            <div className="flex flex-col md:gap-5 gap-5">
               <label className="text-xl">Moving to</label>
-              <select className="p-5">
-                <option>Country</option>
-                <option>Country</option>
-                <option>Country</option>
+              <select
+                className="border rounded-[1rem] p-5"
+                onChange={handleToCountryChange}
+                value={movingToCountry}
+              >
+                <option>Select a country</option>
+                {countries.map((country, index) => (
+                  <option key={index} value={country}>
+                    {country}
+                  </option>
+                ))}
               </select>
               <input
-                className="p-5"
+                className="p-5 border  rounded-[1rem] "
                 type="text"
                 placeholder="Enter a city..."
+                onChange={(e) => setMovingToCity(e.target.value)}
+                value={movingToCity}
               />
             </div>
 
             <label className="text-xl md:-mt-10">Moving date</label>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 -mt-5">
-            <input className="p-5" type="date" placeholder="Enter a city..." />
-            <input className="p-5" type="date" placeholder="Enter a city..." />
+            <input
+              type="date"
+              value={movingDate}
+              onChange={(e) => setMovingDate(e.target.value)}
+              className="p-5 border rounded-[1rem] "
+            />
+            <input
+              className="p-5 border rounded-[1rem] "
+              type="text"
+              placeholder="What are you moving?"
+              onChange={(e) => setMovingItems(e.target.value)}
+              value={movingItems}
+            />
           </div>
           {/* button section */}
           <div
@@ -87,9 +168,7 @@ function Quotes() {
             <p className="text-mc-#898989 text-[28px] cursor-pointer"> 03 </p>
           </div>
         </div>
-      ) : (
-        <div></div>
-      )}
+      ) : null}
 
       {/*2nd Get a Quote */}
       {active === 2 ? (
@@ -106,9 +185,10 @@ function Quotes() {
           {/* form section*/}
           <div className="flex md:gap-20 gap-10 pb-10 md:px-14 px-5 mx-10 mt-5">
             <input
-              className="md:p-5 w-40 h-12 md:ms-2"
+              className="md:p-5 w-10 h-5 md:ms-2"
               type="checkbox"
               id="Transportation"
+              onChange={(e) => setTransportation(e.target.checked)}
             />
             <label className="-ms-3" for="Transportation">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px] -mt-3">
@@ -121,8 +201,13 @@ function Quotes() {
             </label>
           </div>
 
-          <div className="flex md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
-            <input className="p-5 w-40 h-12" type="checkbox" id="Cleaning" />
+          <div className="flex md:gap-20 gap-10 pb-10 md:px-[4rem] px-5 mx-10 mt-5">
+            <input
+              className="md:p-5 w-10 h-5"
+              type="checkbox"
+              id="Cleaning"
+              onChange={(e) => setCleaning(e.target.checked)}
+            />
             <label for="Cleaning">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px]  -mt-3">
                 Cleaning Service
@@ -135,8 +220,13 @@ function Quotes() {
             </label>
           </div>
 
-          <div className="flex  md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
-            <input className="p-5 w-40 h-12" type="checkbox" id="flight" />
+          <div className="flex  md:gap-20 gap-10 pb-10 md:px-[4rem] px-5 mx-10 mt-5">
+            <input
+              className="p-5 w-10 h-5"
+              type="checkbox"
+              id="flight"
+              onChange={(e) => setFlight(e.target.checked)}
+            />
             <label for="flight">
               <h3 className="text-mc-#1C58D7 md:text-[36px] md:mb-3 text-[20px] -mt-3">
                 Air flight Services
@@ -198,20 +288,28 @@ function Quotes() {
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
             <div className="flex flex-col md:gap-8 gap-5">
               <label className="text-xl">Title</label>
-              <select className="p-5">
+              <select
+                className="p-5 border rounded-[1rem]"
+                onChange={(e) => setSalutation(e.target.value)}
+                value={salutation}
+              >
                 <option>Your Title</option>
                 <option>Mr</option>
                 <option>Mrs</option>
                 <option>Miss</option>
                 <option>Mal</option>
                 <option>Master</option>
+                <option>Dr</option>
+                <option>Prof</option>
               </select>
             </div>
 
             <div className="flex flex-col md:gap-8 gap-5">
               <label className="text-xl">First Name</label>
               <input
-                className="p-5"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="p-5 border rounded-[1rem]"
                 type="text"
                 placeholder="Your First Name"
               />
@@ -219,25 +317,40 @@ function Quotes() {
 
             <div className="flex flex-col md:gap-8 gap-5">
               <label className="text-xl">Last Name</label>
-              <input className="p-5" type="text" placeholder="Your Last Name" />
+              <input
+                className="p-5 border rounded-[1rem]"
+                type="text"
+                placeholder="Your Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
             </div>
             <label className="text-xl md:-mt-10">Email</label>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 -mt-5">
             <input
-              className="p-5"
+              className="p-5 border rounded-[1rem]"
+              value={emailAddress}
+              onChange={(e) => setEmailAddress(e.target.value)}
               type="email"
               placeholder="Your Email Address"
             />
             <input
-              className="p-5"
+              className="p-5 border rounded-[1rem]"
+              value={alternateEmailAddress}
+              onChange={(e) => setAlternateEmailAddress(e.target.value)}
               type="email"
-              placeholder="Your Email Address"
+              placeholder="Alternate Email Address"
             />
           </div>
-          <div className="flex items-center justify-center md:gap-20 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
-            <input className="p-5 w-40 h-12" type="checkbox" id="terms" />
+          <div className="flex items-center justify-center md:gap-10 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
+            <input
+              className="p-5 w-10 h-5"
+              type="checkbox"
+              id="terms"
+              onChange={(e) => setTerms(e.target.checked)}
+            />
             <label className="text-xl" for="terms">
               By submitting this form, I consent to receive further
               communication regarding the estimate I have requested and I agree
@@ -258,16 +371,23 @@ function Quotes() {
               </span>
               Back
             </p>
-            <p
-              className="w-fit flex items-center text-#66676A p-5 rounded md:mx-28 mb-10
-             cursor-pointer hover:text-white hover:bg-black bg-mc-#1c58d8 
-             md:bg-white md:text-black text-white mx-14"
+            <button
+              type="button"
+              className={`w-fit flex items-center text-#66676A p-5 rounded md:mx-28 mb-10 
+             ${!terms ? "cursor-not-allowed" : "cursor-pointer"}
+             hover:text-white hover:bg-black 
+             ${
+               !terms ? "bg-gray-300 text-gray-500" : "bg-mc-#1c58d8 text-white"
+             }
+             md:bg-white md:text-black text-white mx-14`}
+              onClick={() => console.log(data)}
+              disabled={!terms}
             >
               Submit
               <span className="ms-3">
                 <FaArrowRight className="font-[100]" />
               </span>
-            </p>
+            </button>
           </div>
           {/* active number section */}
           <div className="flex items-center justify-center gap-10 mb-10">
@@ -276,9 +396,7 @@ function Quotes() {
             <p className="text-mc-#27272B text-[28px] cursor-pointer"> 03 </p>
           </div>
         </div>
-      ) : (
-        <div></div>
-      )}
+      ) : null}
     </main>
   );
 }
