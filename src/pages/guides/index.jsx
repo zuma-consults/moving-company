@@ -49,7 +49,7 @@ function Guide() {
       <div className="md:px-20 h-[650px] w-full relative mb-20">
         <div
           className="bg-cover bg-center h-full  md:mt-[120px] mt-[100px] relative flex flex-col items-center justify-end"
-          style={{ backgroundImage: 'url("/guides.jpg")' }}
+          style={{ backgroundImage: 'url("/guides.jpg")'}}
         >
           <div className="flex items-center justify-center text-white text-5xl font-extrabold h-full uppercase">
             GUIDES
