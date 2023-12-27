@@ -11,7 +11,7 @@ function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleMenuToggle = () => {
-    console.log("handleMenuToggle");
+    // console.log("handleMenuToggle");
     setShowMenu(!showMenu);
   };
 
@@ -22,7 +22,7 @@ function Navbar() {
   };
 
   const handleMenuClose = () => {
-    console.log("handleMenuClose");
+    // console.log("handleMenuClose");
     setShowMenu(false);
   };
   return (
@@ -103,7 +103,9 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        {showMenu && <SideMenu onClose={handleMenuClose} isOpen={showMenu} />}
+        {showMenu && (
+          <SideMenu onClose={() => {handleMenuClose}} isOpen={showMenu} />
+        )}
       </div>
     </div>
   );
