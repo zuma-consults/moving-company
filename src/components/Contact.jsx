@@ -14,7 +14,7 @@ function Contact({ contactImg, showTop, showBottom }) {
     agentSupport: false,
     others: false,
   });
-  const [state, handleSubmit] = useForm("mpzvaekrc");
+  const [state, handleSubmit] = useForm("mpzvaekr");
 
   if (state.succeeded) {
     toast.error("Message Successfully sent! we will speak with you soon");
