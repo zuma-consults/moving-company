@@ -38,6 +38,7 @@ const SideMenu = ({ onClose, isOpen }) => {
             width={400}
             alt="ATD logistics Logo"
             height={400}
+            onClick={isOpen}
           />
         </Link>
       </div>
