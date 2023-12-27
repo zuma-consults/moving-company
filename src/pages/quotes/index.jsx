@@ -67,22 +67,22 @@ function Quotes() {
 
   let [active, setActive] = useState(1);
 
-  let clear = () => {
-    // setMovingFromCountry("");
-    // setMovingFromCity("");
-    // setMovingToCountry("");
-    // setMovingToCity("");
-    // setMovingDate("");
-    // setMovingItems("");
-    // setSalutation("");
-    // setFirstName("");
-    // setLastName("");
-    // setEmailAddress("");
-    // setAlternateEmailAddress("");
-    // setTransportation(false);
-    // setCleaning(false);
-    // setFlight(false);
-    // setTerms(false);
+  const clear = () => {
+    setMovingFromCountry("");
+    setMovingFromCity("");
+    setMovingToCountry("");
+    setMovingToCity("");
+    setMovingDate("");
+    setMovingItems("");
+    setSalutation("");
+    setFirstName("");
+    setLastName("");
+    setEmailAddress("");
+    setAlternateEmailAddress("");
+    setTransportation(false);
+    setCleaning(false);
+    setFlight(false);
+    setTerms(false);
     setActive(1);
     toast("Message Successfully sent! we will speak with you soon");
   };
@@ -102,9 +102,19 @@ function Quotes() {
     },
   });
 
+  // const handleFormSubmit = () => {
+  //   // Assuming some form of validation is successful before submitting
+  //   handleSubmit();
+
+  //   if (state.succeeded) { 
+  //     clear();
+  //     console.log("Message sent successfully...");
+  //     // Call clear function when the form is successfully submitted     
+  //   }
+  // };
+
   if (state.succeeded) {
     toast("Message Successfully sent! we will speak with you soon");
-    // setActive(1);
   }
 
   if (state.submitting) {
@@ -449,6 +459,7 @@ function Quotes() {
               </p>
               <button
                 type="submit"
+                // onClick={handleFormSubmit}
                 className={`w-fit flex items-center text-#66676A p-5 rounded md:mx-28 mb-10 
              ${!terms ? "cursor-not-allowed" : "cursor-pointer"}
              hover:text-white hover:bg-black 
