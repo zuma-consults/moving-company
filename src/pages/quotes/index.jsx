@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import { useForm } from "@formspree/react";
 import { countries } from "./data";
 import Loader from "../../components/Loader";
+import { toast } from "react-toastify";
 
 function Quotes() {
   const [movingFromCountry, setMovingFromCountry] = useState("");
@@ -37,9 +38,9 @@ function Quotes() {
   };
 
   const additionalService = {
-    "Transportation ": transportation,
-    "Cleaning ": cleaning,
-    "Flight ": flight,
+    Transportation: transportation,
+    Cleaning: cleaning,
+    Flight: flight,
   };
 
   const data = {
@@ -58,15 +59,52 @@ function Quotes() {
     additionalService,
   };
 
+  // console.log(additionalService.Transportation);
+
   useEffect(() => {
     AOS.init();
   }, []);
+
   let [active, setActive] = useState(1);
 
-  const [state, handleSubmit] = useForm("mnqeakwv");
+  let clear = () => {
+    // setMovingFromCountry("");
+    // setMovingFromCity("");
+    // setMovingToCountry("");
+    // setMovingToCity("");
+    // setMovingDate("");
+    // setMovingItems("");
+    // setSalutation("");
+    // setFirstName("");
+    // setLastName("");
+    // setEmailAddress("");
+    // setAlternateEmailAddress("");
+    // setTransportation(false);
+    // setCleaning(false);
+    // setFlight(false);
+    // setTerms(false);
+    setActive(1);
+    toast("Message Successfully sent! we will speak with you soon");
+  };
+
+  const [state, handleSubmit] = useForm("xleqryka", {
+    data: {
+      subject: "New Quote Request",
+      Country_From: movingFromCountry.toUpperCase(),
+      City_From: movingFromCity.toUpperCase(),
+      Country_To: movingToCountry.toUpperCase(),
+      City_To: movingToCity.toUpperCase(),
+      Date: movingDate,
+      Items: movingItems.toUpperCase(),
+      Transportation: additionalService.Transportation,
+      Cleaning: additionalService.Cleaning,
+      Flight: additionalService.Flight,
+    },
+  });
 
   if (state.succeeded) {
-    toast.error("Message Successfully sent! we will speak with you soon");
+    toast("Message Successfully sent! we will speak with you soon");
+    // setActive(1);
   }
 
   if (state.submitting) {
@@ -74,15 +112,15 @@ function Quotes() {
   }
 
   if (state.errors) {
-    console.log(state.errors.formErrors[0].message);
+    // console.log(state.errors.formErrors[0].message);
     toast(`Error: ${state.errors.formErrors[0].message}`);
   }
 
   return (
     <main className="w-full">
       {/* navbar section */}
-      {/*1st Get a Quote */}
       <form onSubmit={handleSubmit}>
+        {/*1st Get a Quote */}
         {active === 1 ? (
           <div
             className="bg-whitesmoke mt-[100px]"
@@ -107,7 +145,7 @@ function Quotes() {
                   className="border rounded-[1rem] p-5"
                   onChange={handleFromCountryChange}
                   value={movingFromCountry}
-                  name="movingFromCountry"
+                  name="Country Moving From"
                 >
                   <option>Select a country</option>
                   {countries.map((country, index) => (
@@ -122,7 +160,7 @@ function Quotes() {
                   placeholder="Enter a city..."
                   onChange={(e) => setMovingFromCity(e.target.value)}
                   value={movingFromCity}
-                  name="movingFromCity"
+                  name="City Moving From"
                 />
               </div>
 
@@ -132,7 +170,7 @@ function Quotes() {
                   className="border rounded-[1rem] p-5"
                   onChange={handleToCountryChange}
                   value={movingToCountry}
-                  name="movingToCountry"
+                  name="Country Moving To"
                 >
                   <option>Select a country</option>
                   {countries.map((country, index) => (
@@ -147,7 +185,7 @@ function Quotes() {
                   placeholder="Enter a city..."
                   onChange={(e) => setMovingToCity(e.target.value)}
                   value={movingToCity}
-                  name="movingToCity"
+                  name="City Moving To"
                 />
               </div>
 
@@ -159,7 +197,7 @@ function Quotes() {
                 value={movingDate}
                 onChange={(e) => setMovingDate(e.target.value)}
                 className="p-5 border rounded-[1rem] "
-                name="movingDate"
+                name="Moving Date"
               />
               <input
                 className="p-5 border rounded-[1rem] "
@@ -167,7 +205,7 @@ function Quotes() {
                 placeholder="What are you moving?"
                 onChange={(e) => setMovingItems(e.target.value)}
                 value={movingItems}
-                name="movingItems"
+                name="Moving Items"
               />
             </div>
             {/* button section */}
@@ -296,9 +334,7 @@ function Quotes() {
               <p className="text-mc-#898989 text-[28px] cursor-pointer"> 03 </p>
             </div>
           </div>
-        ) : (
-          <div></div>
-        )}
+        ) : null}
 
         {/*3rd Get a Quote */}
         {active === 3 ? (
@@ -322,7 +358,7 @@ function Quotes() {
                   className="p-5 border rounded-[1rem]"
                   onChange={(e) => setSalutation(e.target.value)}
                   value={salutation}
-                  name="salutation"
+                  name="Title"
                 >
                   <option>Your Title</option>
                   <option>Mr</option>
@@ -345,7 +381,7 @@ function Quotes() {
                   className="p-5 border rounded-[1rem]"
                   type="text"
                   placeholder="Your First Name"
-                  name="firstName"
+                  name="First Name"
                 />
               </div>
 
@@ -359,7 +395,7 @@ function Quotes() {
                   placeholder="Your Last Name"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
-                  name="lastName"
+                  name="Last Name"
                 />
               </div>
               <label className="text-xl md:-mt-10">Email</label>
@@ -372,7 +408,7 @@ function Quotes() {
                 onChange={(e) => setEmailAddress(e.target.value)}
                 type="email"
                 placeholder="Your Email Address"
-                name="emailAddress"
+                name="Email Address"
               />
               <input
                 className="p-5 border rounded-[1rem]"
@@ -380,7 +416,7 @@ function Quotes() {
                 onChange={(e) => setAlternateEmailAddress(e.target.value)}
                 type="email"
                 placeholder="Alternate Email Address"
-                name="alternateEmailAddress"
+                name="Alternate Email Address"
               />
             </div>
             <div className="flex items-center justify-center md:gap-10 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
@@ -389,9 +425,9 @@ function Quotes() {
                 type="checkbox"
                 id="terms"
                 onChange={(e) => setTerms(e.target.checked)}
-                name="terms"
+                name="Agree Terms"
               />
-              <label className="text-xl" htmlFor="terms">
+              <label className="text-xl" for="terms">
                 By submitting this form, I consent to receive further
                 communication regarding the estimate I have requested and I
                 agree to the storing and processing of my personal details by
@@ -421,7 +457,6 @@ function Quotes() {
              }
              md:bg-white md:text-black text-white mx-14`}
                 disabled={!terms}
-              
               >
                 Submit
                 <span className="ms-3">
@@ -436,7 +471,9 @@ function Quotes() {
               <p className="text-mc-#27272B text-[28px] cursor-pointer"> 03 </p>
             </div>
           </div>
-        ) : null}
+        ) : (
+          <div></div>
+        )}
       </form>
     </main>
   );
