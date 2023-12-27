@@ -11,7 +11,7 @@ function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleMenuToggle = () => {
-    console.log("handleMenuToggle");
+    // console.log("handleMenuToggle");
     setShowMenu(!showMenu);
   };
 
@@ -22,26 +22,27 @@ function Navbar() {
   };
 
   const handleMenuClose = () => {
-    console.log("handleMenuClose");
+    // console.log("handleMenuClose");
     setShowMenu(false);
   };
   return (
     <div className="w-full h-[100px] flex items-center shadow justify-center z-50 fixed top-0 right-0 left-0 bg-white md:px-20 px-5">
       <div className="flex items-center justify-between w-full">
-        <Link
-          to="/"
+        <div
           data-aos="fade-right"
           data-aos-duration="500"
           data-aos-easing="ease-in-out"
-          className="logo w-[50%]"
+          className="logo w-fit"
         >
-          <img
-            src={"/atd-logo.svg"}
-            width={200}
-            alt="ATD logistics Logo"
-            height={200}
-          />
-        </Link>
+          <Link to="/">
+            <img
+              src={"/atd-logo.svg"}
+              width={200}
+              alt="ATD logistics Logo"
+              height={200}
+            />
+          </Link>
+        </div>
         <div
           data-aos="fade-left"
           data-aos-duration="500"
@@ -103,7 +104,14 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        {showMenu && <SideMenu onClose={handleMenuClose} isOpen={showMenu} />}
+        {showMenu && (
+          <SideMenu
+            onClose={() => {
+              handleMenuClose;
+            }}
+            isOpen={showMenu}
+          />
+        )}
       </div>
     </div>
   );
