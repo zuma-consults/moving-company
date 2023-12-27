@@ -29,7 +29,7 @@ function Services() {
       </div>
       {/* comprehensive services */}
       <div className="md:px-20 my-10 bg-whitesmoke">
-        <h1 className="font-normal md:text-[42px] text-[30px] text-center md:mx-28 mx-5">
+        <h1 className="font-normal lg:text-[42px] md:text-[32px] text-[30px] text-center md:mx-28 mx-5">
           We offer a comprehensive suite of services tailored to simplify your
           moving experience.
         </h1>
