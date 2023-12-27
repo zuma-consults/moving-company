@@ -8,7 +8,7 @@ function ServiceCard(props) {
   }, []);
   return (
     <div className="flex justify-center flex-col my-10 shadow-md">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-10 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 bg-white p-10 ">
         <div
           className={`w-full relative flex items-center md:flex-${
             props.reverse ? "row-reverse" : "row"
