@@ -14,10 +14,10 @@ function Contact({ contactImg, showTop, showBottom }) {
     agentSupport: false,
     others: false,
   });
-  const [state, handleSubmit] = useForm("mpzvaekrc");
+  const [state, handleSubmit] = useForm("mpzvaekr");
 
   if (state.succeeded) {
-    toast.error("Message Successfully sent! we will speak with you soon");
+    toast("Message Successfully sent! we will speak with you soon");
   }
 
   if (state.submitting) {
@@ -26,7 +26,7 @@ function Contact({ contactImg, showTop, showBottom }) {
 
   if (state.errors) {
     console.log(state.errors.formErrors[0].message);
-    toast(`Error: ${state.errors.formErrors[0].message}`);
+    toast.error(`Error: ${state.errors.formErrors[0].message}`);
   }
 
   const handleCheckboxChange = (checkboxName) => {

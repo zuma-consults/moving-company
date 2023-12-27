@@ -22,7 +22,7 @@ const SideMenu = ({ onClose, isOpen }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full w-64 bg-white shadow p-6 side-menu transform ${
+      className={`fixed top-0 left-0 h-full w-full bg-white shadow p-6 side-menu transform ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-1000 ease-in-out md:hidden`}
     >
