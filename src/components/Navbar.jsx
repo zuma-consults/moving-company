@@ -114,9 +114,10 @@ function Navbar() {
           <Link to="/">
             <img
               src={"/atd-logo.svg"}
-              width={200}
+              // width={100}
               alt="ATD logistics Logo"
               height={200}
+              className="md:w-[150px] lg:w-[200px]"
             />
           </Link>
         </div>
@@ -124,9 +125,9 @@ function Navbar() {
           data-aos="fade-left"
           data-aos-duration="500"
           data-aos-easing="ease-in-out"
-          className="w-[50%]"
+          className="w-[50%] lg:text-base md:text-sm"
         >
-          <ul className="flex items-center justify-end  gap-10">
+          <ul className="flex items-center justify-end  lg:gap-10 md:gap-8">
             <li
               className={`hidden md:flex ${
                 isLinkActive("about") && "text-mc-primary2"
