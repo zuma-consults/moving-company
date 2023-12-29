@@ -196,6 +196,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                 height: "100%",
                 objectFit: "cover",
                 objectPosition: "center",
+                backgroundColor:"#c8b096",
               }}
             />
           </div>

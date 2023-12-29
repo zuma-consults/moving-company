@@ -14,6 +14,7 @@ function Hero() {
             height: "100%",
             objectFit: "cover",
             objectPosition: "center",
+            backgroundColor: "#4f4d4b",
           }}
         />
 

@@ -26,6 +26,7 @@ function ServiceCard(props) {
             width={500}
             height={500}
             className="pt-2"
+            style={{backgroundColor:"#303d50"}}
           />
         </div>
 

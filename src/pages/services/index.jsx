@@ -24,7 +24,10 @@ function Services() {
       <div className="md:px-20 h-[600px] w-full relative mb-10">
         <div
           className="bg-cover bg-center h-full  md:mt-[120px] mt-[100px] relative flex flex-col items-center justify-end"
-          style={{ backgroundImage: 'url("/serviceBg.svg")' }}
+          style={{
+            backgroundImage: 'url("/serviceBg.svg")',
+            backgroundColor: "#377477",
+          }}
         >
           <div className="flex items-center justify-center text-white text-5xl font-extrabold h-full uppercase">
             our services
