@@ -1,7 +1,7 @@
 import DownArrow from "../../components/DownArrow";
 import Contact from "../../components/Contact";
 
-function About() {
+function ContactPage() {
   return (
     <main className="w-full h-full">
       <div className="md:px-20 h-[600px] w-full relative mb-20">
@@ -20,4 +20,4 @@ function About() {
   );
 }
 
-export default About;
+export default ContactPage;

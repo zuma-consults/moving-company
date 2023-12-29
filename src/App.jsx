@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import About from "./pages/about";
 import Home from "./pages/home";
-import Contact from "./pages/contact";
+import ContactPage from "./pages/contact";
 import Services from "./pages/services";
 import Guide from "./pages/guides";
 import GuideIdPage from "./pages/guides/guideId";
@@ -18,7 +18,7 @@ function App() {
         <Route path="/guides" element={<Guide />} />
         <Route path="/guides/:id" element={<GuideIdPage />} />
         <Route path="/quotes" element={<Quotes />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Route>
     </Routes>
   );

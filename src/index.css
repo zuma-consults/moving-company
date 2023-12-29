@@ -45,3 +45,28 @@ body {
 .bounce-on-hover {
   animation: custom-bounce 1s infinite;
 }
+
+.goog-te-gadget-simple {
+  border: none !important;
+  width: 100%;
+  background: #f0f0f0f0 !important;
+  padding: 10px !important;
+}
+.goog-te-gadget-simple img {
+  display: none !important;
+}
+.goog-te-gadget-simple span a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.goog-te-gadget-simple span a span {
+  border: none !important;
+  margin-right: 2px;
+}
+table {
+  display: none !important;
+}
+.VIpgJd-ZVi9od-ORHb {
+  display: none !important;
+}

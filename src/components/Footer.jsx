@@ -1,7 +1,7 @@
-import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
+import { Link } from "react-router-dom";
 import { SlSocialFacebook } from "react-icons/sl";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
@@ -12,7 +12,15 @@ function Footer() {
     <div className="w-full h-full flex items-center justify-center  flex-col">
       <div className="w-full flex-col md:flex-row flex items-start justify-between gap-5 flex-wrap h-[90%]  bg-mc-primary1 p-10">
         <div className="text-white flex flex-col gap-2">
-          <span>logo</span>
+          <span className="w-full my-2">
+            <img
+              src={"/atdwhiteLogo.svg"}
+              width={100}
+              alt="ATD logistics Logo"
+              // height={200}
+              className="md:w-[150px] lg:w-[200px]"
+            />
+          </span>
           <div className="text-white flex gap-2">
             <FaPhoneAlt /> <span>+47 947 21 965</span>
           </div>
@@ -50,10 +58,26 @@ function Footer() {
         <div className="text-white flex flex-col gap-2">
           <span>Stay Connected</span>
           <div className="flex items-center gap-3">
-            <SlSocialFacebook />
-            <IoLogoInstagram />
-            <FaXTwitter />
-            <FiLinkedin />
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <SlSocialFacebook />
+            </a>
+            <a
+              href="https://www.instagram.com/atdlogistics_"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IoLogoInstagram />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <FaXTwitter />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/atdlogistics/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiLinkedin />
+            </a>
           </div>
         </div>
       </div>
