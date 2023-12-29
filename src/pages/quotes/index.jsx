@@ -106,10 +106,10 @@ function Quotes() {
   //   // Assuming some form of validation is successful before submitting
   //   handleSubmit();
 
-  //   if (state.succeeded) { 
+  //   if (state.succeeded) {
   //     clear();
   //     console.log("Message sent successfully...");
-  //     // Call clear function when the form is successfully submitted     
+  //     // Call clear function when the form is successfully submitted
   //   }
   // };
 

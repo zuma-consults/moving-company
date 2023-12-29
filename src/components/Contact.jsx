@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "@formspree/react";
 import Loader from "./Loader";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
 function Contact({ contactImg, showTop, showBottom }) {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const [checkboxes, setCheckboxes] = useState({
     moving: false,
     relocation: false,
@@ -25,7 +30,7 @@ function Contact({ contactImg, showTop, showBottom }) {
   }
 
   if (state.errors) {
-    console.log(state.errors.formErrors[0].message);
+    // console.log(state.errors.formErrors[0].message);
     toast.error(`Error: ${state.errors.formErrors[0].message}`);
   }
 
