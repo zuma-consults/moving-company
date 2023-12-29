@@ -3,10 +3,15 @@ import { useState, useEffect } from "react";
 import Loader from "../../components/Loader";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import { DateTime } from "luxon";
 
-function Guide() {
+function Guide() { 
+  useEffect(() => {
+  AOS.init();
+}, []);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
 
@@ -17,7 +22,7 @@ function Guide() {
           "https://public-api.wordpress.com/wp/v2/sites/thechisomchima.wordpress.com/posts/"
         );
         setPosts(response.data);
-        console.log(response);
+        // console.log(response);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching posts:", error);

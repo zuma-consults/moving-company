@@ -16,7 +16,7 @@ function GuideIdPage() {
           `https://public-api.wordpress.com/wp/v2/sites/thechisomchima.wordpress.com/posts/${id}`
         );
         setPost(response.data);
-        console.log(response);
+        // console.log(response);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching posts:", error);

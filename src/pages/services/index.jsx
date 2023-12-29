@@ -9,8 +9,14 @@ import img6 from "./service6.png";
 import img7 from "./service7.png";
 import img8 from "./service8.png";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 function Services() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   let array = [img1, img2, img3, img4, img5, img6, img7, img8];
   return (
     <main className="w-full h-full ">

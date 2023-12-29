@@ -4,8 +4,13 @@ import SideMenu from "./SideMenu";
 import { useParams } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Navbar() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const { id } = useParams();
   const [showMenu, setShowMenu] = useState(false);
   const [showTranslateDropdown, setShowTranslateDropdown] = useState(false);
