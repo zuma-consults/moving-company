@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SideMenu from "./SideMenu";
-import { useParams } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import AOS from "aos";
@@ -11,7 +10,6 @@ function Navbar() {
   useEffect(() => {
     AOS.init();
   }, []);
-  const { id } = useParams();
   const [showMenu, setShowMenu] = useState(false);
   const [showTranslateDropdown, setShowTranslateDropdown] = useState(false);
   const location = useLocation();
@@ -22,9 +20,8 @@ function Navbar() {
   };
 
   const isLinkActive = (path) => {
-    if (id) {
-      return id == path;
-    }
+    // Check if the current location pathname contains the specified path
+    return location.pathname.includes(path);
   };
 
   const handleMenuClose = () => {

@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 // eslint-disable-next-line react/prop-types
 const SideMenu = ({ onClose, isOpen }) => {
+  const location = useLocation();
   // Close the menu when clicking outside of it
   useEffect(() => {
     // console.log(isOpen, "isOpen");
@@ -19,6 +20,11 @@ const SideMenu = ({ onClose, isOpen }) => {
       document.removeEventListener("click", handleOutsideClick);
     };
   }, [onClose, isOpen]);
+
+  const isLinkActive = (path) => {
+    // Check if the current location pathname includes the specified path
+    return location.pathname.includes(path);
+  };
 
   return (
     <div
@@ -44,7 +50,11 @@ const SideMenu = ({ onClose, isOpen }) => {
       </div>
 
       <ul className="space-y-4 text-mc-primary1">
-        <li className="border-b p-2 ">
+        <li
+          className={`border-b p-2 ${
+            isLinkActive("about") && "text-mc-primary2"
+          }`}
+        >
           <Link to="/about">
             <div
               className="flex gap-2 items-center justify-between"
@@ -55,7 +65,11 @@ const SideMenu = ({ onClose, isOpen }) => {
             </div>
           </Link>
         </li>
-        <li className="border-b p-2">
+        <li
+          className={`border-b p-2 ${
+            isLinkActive("services") && "text-mc-primary2"
+          }`}
+        >
           <Link to="/services">
             <div
               className="flex gap-2 items-center justify-between"
@@ -66,18 +80,26 @@ const SideMenu = ({ onClose, isOpen }) => {
             </div>
           </Link>
         </li>
-        <li className="border-b p-2">
+        <li
+          className={`border-b p-2 ${
+            isLinkActive("guides") && "text-mc-primary2"
+          }`}
+        >
           <Link to="/guides">
             <div
               className="flex gap-2 items-center justify-between"
               onClick={isOpen}
             >
-              <span> Guides</span>
+              <span>Guides</span>
               <FaArrowRightLong className="font-thin animate-pulse" />
             </div>
           </Link>
         </li>
-        <li className="border-b p-2">
+        <li
+          className={`border-b p-2 ${
+            isLinkActive("contact") && "text-mc-primary2"
+          }`}
+        >
           <Link to="/contact">
             <div
               className="flex gap-2 items-center justify-between"
@@ -88,7 +110,9 @@ const SideMenu = ({ onClose, isOpen }) => {
             </div>
           </Link>
         </li>
-        <li className="border-b p-2 bg-mc-primary1 hover:bg-blue-500 flex items-center justify-center text-white">
+        <li
+          className={`border-b p-2 bg-mc-primary1 hover:bg-blue-500 flex items-center justify-center text-white`}
+        >
           <Link to="/quotes">
             <div onClick={isOpen}>Get Quote</div>
           </Link>

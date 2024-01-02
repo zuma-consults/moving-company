@@ -87,7 +87,7 @@ function Quotes() {
     toast("Message Successfully sent! we will speak with you soon");
   };
 
-  const [state, handleSubmit] = useForm("mnqeakwv", {
+  const [state, handleSubmit] = useForm("mkndnrdp", {
     data: {
       subject: "New Quote Request",
       Country_From: movingFromCountry.toUpperCase(),
@@ -429,6 +429,18 @@ function Quotes() {
                 name="Alternate Email Address"
               />
             </div>
+            <div className="flex flex-col items-start justify-center pb-10 md:px-20 px-5 mx-10 -mt-5">
+              <label className="text-xl my-5" htmlFor="">
+                Message
+              </label>
+              <textarea
+                className=" border rounded-[1rem] w-full p-5"
+                type="text"
+                placeholder="Message"
+                name="message"
+              />
+            </div>
+
             <div className="flex items-center justify-center md:gap-10 gap-10 pb-10 md:px-20 px-5 mx-10 mt-5">
               <input
                 className="p-5 w-10 h-5"

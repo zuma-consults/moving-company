@@ -13,7 +13,7 @@ function GuideIdPage() {
     const fetchPosts = async () => {
       try {
         const response = await axios.get(
-          `https://public-api.wordpress.com/wp/v2/sites/thechisomchima.wordpress.com/posts/${id}`
+          `https://public-api.wordpress.com/wp/v2/sites/atdlogisticsintl.wordpress.com/posts/${id}`
         );
         setPost(response.data);
         // console.log(response);
@@ -32,13 +32,14 @@ function GuideIdPage() {
   return (
     <main className="w-full h-full">
       {loading && <Loader />}
-      <div className="p-20 m-auto flex items-center justify-center flex-col mt-[100px]">
-        <div className="flex items-center mb-10 capitalize justify-start text-gray-600 text-5xl font-extrabold h-full">
-          {post?.title?.rendered}
-        </div>
+      <div className="md:p-20 p-7 m-auto flex items-center justify-center flex-col mt-[100px]">
+        <div
+          className="flex items-center mb-10 capitalize justify-start text-gray-600 text-5xl font-extrabold h-full"
+          dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
+        />
         {post && (
           <div
-            className="w-[60%] leading-10"
+            className="md:w-[60%] leading-10"
             key={post.id}
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
           />

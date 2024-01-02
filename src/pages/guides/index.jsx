@@ -8,10 +8,10 @@ import "aos/dist/aos.css";
 
 import { DateTime } from "luxon";
 
-function Guide() { 
+function Guide() {
   useEffect(() => {
-  AOS.init();
-}, []);
+    AOS.init();
+  }, []);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
 
@@ -19,10 +19,9 @@ function Guide() {
     const fetchPosts = async () => {
       try {
         const response = await axios.get(
-          "https://public-api.wordpress.com/wp/v2/sites/thechisomchima.wordpress.com/posts/"
+          "https://public-api.wordpress.com/wp/v2/sites/atdlogisticsintl.wordpress.com/posts/"
         );
         setPosts(response.data);
-        // console.log(response);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -54,7 +53,10 @@ function Guide() {
       <div className="md:px-20 h-[650px] w-full relative mb-20">
         <div
           className="bg-cover bg-center h-full  md:mt-[120px] mt-[100px] relative flex flex-col items-center justify-end"
-          style={{ backgroundImage: 'url("/guides.jpg")',backgroundColor:"#efb900"}}
+          style={{
+            backgroundImage: 'url("/guides.jpg")',
+            backgroundColor: "#efb900",
+          }}
         >
           <div className="flex items-center justify-center text-white text-5xl font-extrabold h-full uppercase">
             GUIDES
@@ -63,20 +65,24 @@ function Guide() {
         </div>
       </div>
       <div
-        className="md:p-20 grid md:grid-cols-2 md:gap-5"
+        className="md:p-20 gap-3 mb-10 grid md:grid-cols-2 md:gap-5"
         data-aos="fade-up"
         data-aos-duration="950"
         data-aos-easing="ease-in-out"
       >
         {posts.map((post) => (
           <Link
-            to={`/guides/${post.id}`}
-            key={post.id}
+            to={`/guides/${post?.id}`}
+            key={post?.id}
             className="shadow-lg border bg-white p-5 md:w-[40vw] flex items-center justify-start gap-6 "
           >
             <div>
               <img
-                src={post.content.rendered.match(/src="([^"]+)"/)[1]}
+                src={
+                  (post?.content?.rendered.match(/src="([^"]+)"/) || [])[1]
+                    ? post?.content?.rendered.match(/src="([^"]+)"/)[1]
+                    : "/moving6.svg"
+                }
                 alt="guide image"
                 className="w-50 h-40 object-cover"
               />
@@ -85,16 +91,16 @@ function Guide() {
               <span>
                 <span style={{ color: "blue" }}>
                   {addOrdinalSuffix(
-                    DateTime.fromISO(post.date, { locale: "en" }).day
+                    DateTime.fromISO(post?.date, { locale: "en" }).day
                   )}
                 </span>{" "}
-                {DateTime.fromISO(post.date, { locale: "en" }).toFormat(
+                {DateTime.fromISO(post?.date, { locale: "en" }).toFormat(
                   "LLL yyyy"
                 )}
               </span>
             </div>
             <div className="border-l-2 p-5 w-[14rem] h-40 md:p-[2rem]">
-              <p>{post.title.rendered}</p>
+              <p dangerouslySetInnerHTML={{ __html: post?.title?.rendered }} />
             </div>
           </Link>
         ))}

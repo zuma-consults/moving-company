@@ -19,7 +19,7 @@ function Contact({ contactImg, showTop, showBottom }) {
     agentSupport: false,
     others: false,
   });
-  const [state, handleSubmit] = useForm("mpzvaekr");
+  const [state, handleSubmit] = useForm("mgegekgl");
 
   if (state.succeeded) {
     toast("Message Successfully sent! we will speak with you soon");
@@ -196,7 +196,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                 height: "100%",
                 objectFit: "cover",
                 objectPosition: "center",
-                backgroundColor:"#c8b096",
+                backgroundColor: "#c8b096",
               }}
             />
           </div>

@@ -40,7 +40,7 @@ function Hero() {
             href="/quotes"
             className="text-white text-2xl font-thin gap-2 flex p-5 items-center justify-center bg-mc-primary1 w-[220px] cursor-pointer hover:bg-blue-600"
           >
-            <span>Get a Quote</span>
+            <Link to="quotes">Get a Quote</Link>
             <FaArrowRightLong className="font-[100] bounce-on-hover" />
           </Link>
         </div>
