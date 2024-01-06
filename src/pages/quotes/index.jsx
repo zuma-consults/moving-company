@@ -23,6 +23,7 @@ function Quotes() {
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [alternateEmailAddress, setAlternateEmailAddress] = useState("");
+  const [message, setMessage] = useState("");
   const [terms, setTerms] = useState(false);
 
   const handleFromCountryChange = (event) => {
@@ -58,8 +59,6 @@ function Quotes() {
     terms,
     additionalService,
   };
-
-  // console.log(additionalService.Transportation);
 
   useEffect(() => {
     AOS.init();
@@ -99,19 +98,9 @@ function Quotes() {
       Transportation: additionalService.Transportation,
       Cleaning: additionalService.Cleaning,
       Flight: additionalService.Flight,
+      Message: message.toUpperCase(),
     },
   });
-
-  // const handleFormSubmit = () => {
-  //   // Assuming some form of validation is successful before submitting
-  //   handleSubmit();
-
-  //   if (state.succeeded) {
-  //     clear();
-  //     console.log("Message sent successfully...");
-  //     // Call clear function when the form is successfully submitted
-  //   }
-  // };
 
   if (state.succeeded) {
     toast("Message Successfully sent! we will speak with you soon");
@@ -219,19 +208,25 @@ function Quotes() {
               />
             </div>
             {/* button section */}
-            <div
-              className="flex items-center justify-end"
-              onClick={() => setActive(2)}
-            >
-              <p
-                className="w-fit flex items-center md:text-#66676A p-5 rounded md:mx-28 mb-10 cursor-pointer
-             hover:text-white hover:bg-black bg-mc-#1c58d8 md:bg-inherit md:text-black text-white mx-14"
+            <div className="flex items-center justify-end">
+              <button
+                onClick={() => setActive(2)}
+                className={`w-fit flex items-center md:text-#66676A p-5 rounded md:mx-28 mb-10 cursor-pointer
+                hover:text-white hover:bg-black bg-mc-#1c58d8 md:bg-inherit md:text-black text-white mx-14`}
+                disabled={
+                  movingItems === "" ||
+                  movingFromCountry == "" ||
+                  movingFromCity == "" ||
+                  movingToCountry == "" ||
+                  movingToCity == "" ||
+                  movingDate == ""
+                }
               >
                 Next
                 <span className="ms-3">
                   <FaArrowRight className="font-[100]" />
                 </span>
-              </p>
+              </button>
             </div>
             {/* active number section */}
             <div className="flex items-center justify-center gap-10 mb-10">
@@ -326,7 +321,7 @@ function Quotes() {
                 </span>
                 Back
               </p>
-              <p
+              <button
                 className="w-fit flex items-center text-#66676A p-5 rounded md:mx-28 mb-10 
               cursor-pointer hover:text-white hover:bg-black bg-mc-#1c58d8 md:bg-inherit md:text-black text-white mx-14"
                 onClick={() => setActive(3)}
@@ -335,7 +330,7 @@ function Quotes() {
                 <span className="ms-3">
                   <FaArrowRight className="font-[100]" />
                 </span>
-              </p>
+              </button>
             </div>
             {/* active number section */}
             <div className="flex items-center justify-center gap-10 mb-10">
@@ -429,6 +424,7 @@ function Quotes() {
                 name="Alternate Email Address"
               />
             </div>
+
             <div className="flex flex-col items-start justify-center pb-10 md:px-20 px-5 mx-10 -mt-5">
               <label className="text-xl my-5" htmlFor="">
                 Message
@@ -438,6 +434,8 @@ function Quotes() {
                 type="text"
                 placeholder="Message"
                 name="message"
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
               />
             </div>
 
@@ -471,7 +469,6 @@ function Quotes() {
               </p>
               <button
                 type="submit"
-                // onClick={handleFormSubmit}
                 className={`w-fit flex items-center text-#66676A p-5 rounded md:mx-28 mb-10 
              ${!terms ? "cursor-not-allowed" : "cursor-pointer"}
              hover:text-white hover:bg-black 
@@ -479,7 +476,15 @@ function Quotes() {
                !terms ? "bg-gray-300 text-gray-500" : "bg-mc-#1c58d8 text-white"
              }
              md:bg-white md:text-black text-white mx-14`}
-                disabled={!terms}
+             
+                disabled={
+                  !terms ||
+                  firstName == "" ||
+                  lastName == "" ||
+                  emailAddress == "" ||
+                  alternateEmailAddress == "" ||
+                  message == ""
+                }
               >
                 Submit
                 <span className="ms-3">
