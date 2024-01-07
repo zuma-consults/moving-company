@@ -33,8 +33,8 @@ function ServiceCard(props) {
         <div>
           <h2
             className="font-bold md:text-[32px] text-[24px] text-center mb-5"
-            data-aos="slide-left"
-            data-aos-duration="500"
+            // data-aos="slide-left"
+            // data-aos-duration="500"
             // data-aos-easing="ease-in-out"
           >
             {props.title}
