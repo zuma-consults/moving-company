@@ -55,7 +55,7 @@ function Hero() {
           </p>
         </div>
         <button className="bg-blue-700 hover:bg-blue-90 rounded-[1rem] p-[1rem] text-white">
-          <Link href="/contact">Partner with us</Link>
+          <Link to="/contact">Partner with us</Link>
         </button>
       </section>
     </>
