@@ -1,13 +1,18 @@
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SlSocialFacebook } from "react-icons/sl";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiLinkedin } from "react-icons/fi";
 
 function Footer() {
+  const location = useLocation();
+  const isLinkActive = (path) => {
+    // Check if the current location pathname contains the specified path
+    return location.pathname.includes(path);
+  };
   return (
     <div className="w-full h-full flex items-center justify-center  flex-col">
       <div className="w-full flex-col md:flex-row flex items-start justify-between gap-5 flex-wrap h-[90%]  bg-mc-primary1 p-10">
@@ -32,35 +37,87 @@ function Footer() {
           </div>
         </div>
         <div className="text-white flex flex-col gap-2">
-          <span>Home</span>
-          <span>About us</span>
-          <span>Our services</span>
-          <span>Guides</span>
-          <span>Contact</span>
-          <span>Get quotes</span>
+          <Link to="" className={`${isLinkActive("") && "text-mc-primary2"}`}>
+            Home
+          </Link>
+          <Link
+            to="about"
+            className={`${isLinkActive("about") && "text-mc-primary2"}`}
+          >
+            About us
+          </Link>
+          <Link
+            to="services"
+            className={`${isLinkActive("services") && "text-mc-primary2"}`}
+          >
+            Our services
+          </Link>
+          <Link
+            to="guides"
+            className={`${isLinkActive("guides") && "text-mc-primary2"}`}
+          >
+            Guides
+          </Link>
+          <Link
+            to="contact"
+            className={`${isLinkActive("contact") && "text-mc-primary2"}`}
+          >
+            Contact
+          </Link>
+          <Link
+            to="quotes"
+            className={`${isLinkActive("quotes") && "text-mc-primary2"}`}
+          >
+            Get quotes
+          </Link>
         </div>
         <div className="text-white flex flex-col gap-2">
-          <span>About us</span>
-          <span>Our mission</span>
-          <span>What sets us apart</span>
+          <Link
+            to="about"
+            className={`${isLinkActive("about") && "text-mc-primary2"}`}
+          >
+            About us
+          </Link>
+          <Link
+            to="about"
+            className={`${isLinkActive("about") && "text-mc-primary2"}`}
+          >
+            Our mission
+          </Link>
+          <Link
+            to="about"
+            className={`${isLinkActive("services") && "text-mc-primary2"}`}
+          >
+            What sets us apart
+          </Link>
         </div>
         <div className="text-white flex flex-col gap-2">
-          <span>Services</span>
+          <Link
+            to="services"
+            className={`${isLinkActive("services") && "text-mc-primary2"}`}
+          >
+            Services
+          </Link>
           <span>Moving</span>
           <span>Relocation</span>
           <span>Storage</span>
         </div>
         <div className="text-white flex flex-col gap-2">
           <span>Useful resources</span>
-          <span>Guide</span>
+          <Link
+            to="guide"
+            className={`${isLinkActive("guide") && "text-mc-primary2"}`}
+          >
+            Guide
+          </Link>
           <span>Privacy statement</span>
         </div>
         <div className="text-white flex flex-col gap-2">
           <span>Stay Connected</span>
           <div className="flex items-center gap-3">
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            {/* <a href="#" target="_blank" rel="noopener noreferrer">
               <SlSocialFacebook />
-            </a>
+            </a> */}
             <a
               href="https://www.instagram.com/atdlogistics_"
               target="_blank"
@@ -68,9 +125,9 @@ function Footer() {
             >
               <IoLogoInstagram />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            {/* <a href="#" target="_blank" rel="noopener noreferrer">
               <FaXTwitter />
-            </a>
+            </a> */}
             <a
               href="https://www.linkedin.com/company/atdlogistics/"
               target="_blank"

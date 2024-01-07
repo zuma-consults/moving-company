@@ -2,7 +2,6 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 function Services() {
-
   return (
     <div className="flex items-center justify-center flex-col my-10 md:px-20 p-3">
       <h1 className="font-normal text-[54px]">Our Services</h1>
@@ -20,7 +19,7 @@ function Services() {
           style={{
             backgroundImage: 'url("/relocation.svg")',
             position: "relative",
-            backgroundColor:"#000",
+            backgroundColor: "#000",
           }}
           data-aos="fade-right"
           data-aos-duration="500"
@@ -39,7 +38,7 @@ function Services() {
           style={{
             backgroundImage: 'url("/transportation.svg")',
             position: "relative",
-            backgroundColor:"#000",
+            backgroundColor: "#000",
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black to-black opacity-40"></div>
@@ -52,7 +51,7 @@ function Services() {
           style={{
             backgroundImage: 'url("/cleaning.svg")',
             position: "relative",
-            backgroundColor:"#000",
+            backgroundColor: "#000",
           }}
           data-aos="fade-left"
           data-aos-duration="500"
@@ -69,7 +68,7 @@ function Services() {
         href="/services"
         className=" w-full flex gap-2 items-center justify-end text-mc-primary1 cursor-pointer"
       >
-        <Link to='/services'>View all services</Link>
+        <Link to="/services">vices</Link>
         <FaArrowRightLong className="font-thin" />
       </Link>
     </div>

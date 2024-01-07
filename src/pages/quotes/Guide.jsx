@@ -70,9 +70,7 @@ function Guide() {
           <Link
             to="/contact"
             className="flex items-center justify-center bg-mc-primary1 hover:bg-blue-600 w-[80%] h-[70%] text-white  text-xl font-normal"
-          >
-            Fill the form
-          </Link>
+          ></Link>
         </div>
       </div>
     </div>
