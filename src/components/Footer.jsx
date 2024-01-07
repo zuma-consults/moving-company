@@ -103,9 +103,9 @@ function Footer() {
           <span>Storage</span>
         </div>
         <div className="text-white flex flex-col gap-2">
-          <span>Useful resources</span>
+          {/* <span>Useful resources</span> */}
           <Link
-            to="guide"
+            to="guides"
             className={`${isLinkActive("guide") && "text-mc-primary2"}`}
           >
             Guide
