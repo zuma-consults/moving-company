@@ -8,7 +8,7 @@ function ContactPage() {
         <div
           className="bg-cover bg-center h-full  md:mt-[120px] mt-[100px] relative flex flex-col items-center justify-end"
           style={{
-            backgroundImage: 'url("/contactHero.svg")',
+            backgroundImage: 'url("/contactHero.jpg")',
             backgroundColor: "#434645",
           }}
         >

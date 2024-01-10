@@ -18,7 +18,7 @@ function Services() {
         <div
           className="relative col-span-1 bg-cover bg-center"
           style={{
-            backgroundImage: 'url("/relocation.svg")',
+            backgroundImage: 'url("/relocation.jpg")',
             position: "relative",
             backgroundColor:"#000",
           }}
@@ -37,7 +37,7 @@ function Services() {
           data-aos-easing="ease-in-out"
           className="relative col-span-1 bg-cover bg-center"
           style={{
-            backgroundImage: 'url("/transportation.svg")',
+            backgroundImage: 'url("/transportation.jpg")',
             position: "relative",
             backgroundColor:"#000",
           }}
@@ -50,7 +50,7 @@ function Services() {
         <div
           className="relative col-span-1 bg-cover bg-center"
           style={{
-            backgroundImage: 'url("/cleaning.svg")',
+            backgroundImage: 'url("/cleaning.jpg")',
             position: "relative",
             backgroundColor:"#000",
           }}
