@@ -37,7 +37,7 @@ function Hero() {
           </div>
           <div className="text-white text-lg mb-3">Let’s get you moving...</div>
           <Link
-            href="/quotes"
+            to="/quotes"
             className="text-white text-2xl font-thin gap-2 flex p-5 items-center justify-center bg-mc-primary1 w-[220px] cursor-pointer hover:bg-blue-600"
           >
             <Link to="quotes">Get a Quote</Link>
