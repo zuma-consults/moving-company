@@ -65,10 +65,10 @@ function Services() {
       </div>
 
       <Link
-        href="/services"
+        to="/services"
         className=" w-full flex gap-2 items-center justify-end text-mc-primary1 cursor-pointer"
       >
-        <Link to="/services">vices</Link>
+        <Link to="/services">services</Link>
         <FaArrowRightLong className="font-thin" />
       </Link>
     </div>
