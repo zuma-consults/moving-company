@@ -68,7 +68,7 @@ function Guide() {
           </div>
 
           <Link
-            to="/contact"
+            to="/quotes"
             className="flex items-center justify-center bg-mc-primary1 hover:bg-blue-600 w-[80%] h-[70%] text-white  text-xl font-normal"
           >
             Fill the form

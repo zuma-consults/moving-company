@@ -2,9 +2,9 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
-import { SlSocialFacebook } from "react-icons/sl";
+// import { SlSocialFacebook } from "react-icons/sl";
 import { IoLogoInstagram } from "react-icons/io5";
-import { FaXTwitter } from "react-icons/fa6";
+// import { FaXTwitter } from "react-icons/fa6";
 import { FiLinkedin } from "react-icons/fi";
 
 function Footer() {
@@ -37,9 +37,7 @@ function Footer() {
           </div>
         </div>
         <div className="text-white flex flex-col gap-2">
-          <Link to="" className={`${isLinkActive("") && "text-mc-primary2"}`}>
-            Home
-          </Link>
+          <Link to="">Home</Link>
           <Link
             to="about"
             className={`${isLinkActive("about") && "text-mc-primary2"}`}
@@ -73,20 +71,20 @@ function Footer() {
         </div>
         <div className="text-white flex flex-col gap-2">
           <Link
-            to="about"
-            className={`${isLinkActive("about") && "text-mc-primary2"}`}
+            to="#"
+            // className={`${isLinkActive("about") && "text-mc-primary2"}`}
           >
             About us
           </Link>
           <Link
-            to="about"
-            className={`${isLinkActive("about") && "text-mc-primary2"}`}
+            to="#"
+            // className={`${isLinkActive("about") && "text-mc-primary2"}`}
           >
             Our mission
           </Link>
           <Link
-            to="about"
-            className={`${isLinkActive("services") && "text-mc-primary2"}`}
+            to="#"
+            // className={`${isLinkActive("services") && "text-mc-primary2"}`}
           >
             What sets us apart
           </Link>

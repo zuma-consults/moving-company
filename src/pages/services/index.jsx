@@ -150,7 +150,7 @@ function Services() {
           // data-aos-duration="200"
           // data-aos-easing="ease-in-out"
         >
-          <Link href="/contact">
+          <Link to="/contact">
             <button className="bg-mc-#1c58d8 text-white md:px-10 p-5 mt-5 shadow-md">
               Contact Us
             </button>
