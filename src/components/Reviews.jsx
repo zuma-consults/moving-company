@@ -68,7 +68,7 @@ function Reviews() {
           </div>
           <div className="w-full pr-5 flex items-center justify-end">
             <span className="bg-mc-primary2 p-[.5px] w-[40px] mr-2"></span>
-            <span>Mark Lawson</span>
+            <span>Suzy Johnson</span>
           </div>
         </div>
         <div
@@ -100,7 +100,7 @@ function Reviews() {
           </div>
           <div className="w-full pr-5 flex items-center justify-end">
             <span className="bg-mc-primary2 p-[.5px] w-[40px] mr-2"></span>
-            <span>Mark Lawson</span>
+            <span>Alan Parker</span>
           </div>
         </div>
       </div>
