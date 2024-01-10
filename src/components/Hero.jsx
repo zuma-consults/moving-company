@@ -7,7 +7,7 @@ function Hero() {
       <div className="relative w-full md:h-[650px] h-[500px] md:mt-[120px] mt-[100px] overflow-hidden">
         {/* Main image */}
         <img
-          src={"/heroImage.svg"}
+          src={"/heroImage.jpg"}
           alt="ATD logistics hero image"
           style={{
             width: "100%",

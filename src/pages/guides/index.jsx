@@ -81,7 +81,7 @@ function Guide() {
                 src={
                   (post?.content?.rendered.match(/src="([^"]+)"/) || [])[1]
                     ? post?.content?.rendered.match(/src="([^"]+)"/)[1]
-                    : "/moving6.svg"
+                    : "/moving6.jpg"
                 }
                 alt="guide image"
                 className="w-50 h-40 object-cover"

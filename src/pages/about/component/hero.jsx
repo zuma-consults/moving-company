@@ -10,7 +10,7 @@ function Hero() {
         <div
           className="bg-cover bg-center h-full  md:mt-[120px] mt-[100px] relative flex flex-col items-center justify-end"
           style={{
-            backgroundImage: 'url("/about.svg")',
+            backgroundImage: 'url("/about.jpg")',
             backgroundColor: "#a8b5cd",
           }}
         >

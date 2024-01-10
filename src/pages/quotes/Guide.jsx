@@ -14,7 +14,7 @@ function Guide() {
           data-aos-easing="ease-in-out"
         >
           <img
-            src={"/loading.svg"}
+            src={"/loading.jpg"}
             alt="ATD logistics hero image"
             style={{
               width: "100%",

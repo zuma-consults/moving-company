@@ -7,6 +7,7 @@ import { useForm } from "@formspree/react";
 import { countries } from "./data";
 import Loader from "../../components/Loader";
 import { toast } from "react-toastify";
+import Tooltips from "../../components/Tooltip";
 
 function Quotes() {
   const [movingFromCountry, setMovingFromCountry] = useState("");
@@ -25,6 +26,80 @@ function Quotes() {
   const [alternateEmailAddress, setAlternateEmailAddress] = useState("");
   const [message, setMessage] = useState("");
   const [terms, setTerms] = useState(false);
+
+  const isMovingDateInvalid = movingDate.trim() === "";
+  const isMovingItemsInvalid = movingItems.trim() === "";
+  const isMovingFromCityInvalid = movingFromCity.trim() === "";
+  const isMovingFromCountryInvalid = movingFromCountry.trim() === "";
+  const isMovingToCountryInvalid = movingToCountry.trim() === "";
+  const isMovingToCityInvalid = movingToCountry.trim() === "";
+  const isFirstNameInvalid = firstName.trim() === "";
+  const isLastNameInvalid = lastName.trim() === "";
+  const isEmailAddressInvalid = emailAddress.trim() === "";
+  const isAlternateEmailAddressInvalid = alternateEmailAddress.trim() === "";
+  const isTermsInvalid = terms === false;
+
+  const validationConditions = [
+    {
+      condition: isMovingFromCountryInvalid,
+      message: "Please enter the country you are moving from",
+    },
+    {
+      condition: isMovingFromCityInvalid,
+      message: "Please enter the city you are moving from",
+    },
+    {
+      condition: isMovingToCountryInvalid,
+      message: "Please enter the country you are moving to",
+    },
+    {
+      condition: isMovingToCityInvalid,
+      message: "Please enter the city you are moving to",
+    },
+    {
+      condition: isMovingDateInvalid,
+      message: "Please select a date",
+    },
+    {
+      condition: isMovingItemsInvalid,
+      message: "Please add items",
+    },
+    {
+      condition: isFirstNameInvalid,
+      message: "Please enter your first name",
+    },
+    {
+      condition: isLastNameInvalid,
+      message: "Please enter your last name",
+    },
+    {
+      condition: isEmailAddressInvalid,
+      message: "Please enter your email address",
+    },
+    {
+      condition: isAlternateEmailAddressInvalid,
+      message: "Please enter your alternate email address",
+    },
+    {
+      condition: isTermsInvalid,
+      message: "Please agree to terms and conditions",
+    },
+  ];
+
+  const renderTooltip = () => {
+    for (const tooltip of validationConditions) {
+      if (tooltip.condition) {
+        return (
+          <Tooltips
+            id="next"
+            anchorSelect="#my-anchor-element"
+            message={tooltip.message}
+          />
+        );
+      }
+    }
+    return null;
+  };
 
   const handleFromCountryChange = (event) => {
     event.preventDefault();
@@ -210,6 +285,7 @@ function Quotes() {
             {/* button section */}
             <div className="flex items-center justify-end">
               <button
+                data-tooltip-id="next"
                 onClick={() => setActive(2)}
                 className={`w-fit flex items-center md:text-#66676A p-5 rounded md:mx-28 mb-10 cursor-pointer
                 hover:text-white hover:bg-black bg-mc-#1c58d8 md:bg-inherit md:text-black text-white mx-14`}
@@ -227,6 +303,7 @@ function Quotes() {
                   <FaArrowRight className="font-[100]" />
                 </span>
               </button>
+              {renderTooltip()}
             </div>
             {/* active number section */}
             <div className="flex items-center justify-center gap-10 mb-10">
@@ -469,6 +546,7 @@ function Quotes() {
               </p>
               <button
                 type="submit"
+                data-tooltip-id="next"
                 className={`w-fit flex items-center text-#66676A p-5 rounded md:mx-28 mb-10 
              ${!terms ? "cursor-not-allowed" : "cursor-pointer"}
              hover:text-white hover:bg-black 
@@ -476,7 +554,6 @@ function Quotes() {
                !terms ? "bg-gray-300 text-gray-500" : "bg-mc-#1c58d8 text-white"
              }
              md:bg-white md:text-black text-white mx-14`}
-             
                 disabled={
                   !terms ||
                   firstName == "" ||
@@ -491,6 +568,7 @@ function Quotes() {
                   <FaArrowRight className="font-[100]" />
                 </span>
               </button>
+              {renderTooltip()}
             </div>
             {/* active number section */}
             <div className="flex items-center justify-center gap-10 mb-10">
