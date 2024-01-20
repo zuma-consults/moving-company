@@ -292,7 +292,7 @@ function Quotes() {
                 className="p-5 border rounded-[1rem] "
                 name="Moving Date"
               />
-              <div className={showOtherInput ? "grid grid-cols-2 gap-2" : "grid"}>
+              <div className={showOtherInput ? "grid md:grid-cols-2 gap-2" : "grid"}>
               <select
                 className="p-5 border rounded-[1rem]"
                 onChange={handleMovingItemsChange}
