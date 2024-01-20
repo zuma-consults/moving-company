@@ -28,12 +28,7 @@ function Hero() {
             data-aos-duration="950"
             data-aos-easing="ease-in-out"
           >
-            At ATD, we understand that moving is more than just relocating
-            belongings; it&rsquo;s about transitions, change, and new
-            beginnings. With a steadfast commitment to excellence and a wealth
-            of experience in the moving and relocation industry, ATD - Alex
-            Transport and Distribution offers comprehensive solutions tailored
-            to meet your unique needs.
+        We are ATD Logistics – your dedicated ally in simplifying the complexities of relocation in Norway. From local to international moves, our expert team offers tailored solutions that prioritize excellence and personalization. With secure storage options and a commitment to seamless transitions, we redefine moving experiences for Norwegians. Trust us – We are your partner in making your journey smooth, efficient, and stress-free
           </p>
         </div>
         <div className="w-full">
@@ -48,10 +43,7 @@ function Hero() {
             data-aos-duration="950"
             data-aos-easing="ease-in-out"
           >
-            Whether it&rsquo;s your first move or you&rsquo;re a seasoned mover,
-            partner with ATD for a stress-free and tailored relocation
-            experience. Join us on this journey, and let&rsquo;s make your move
-            a smooth transition to new possibilities.
+          Whether it's your first move or you're a seasoned mover, partner with ATD for a stress-free and tailored relocation experience. Join us on this journey, and let's make your move a smooth transition to new possibilities.
           </p>
         </div>
         <button className="bg-blue-700 hover:bg-blue-90 rounded-[1rem] p-[1rem] text-white">

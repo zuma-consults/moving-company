@@ -50,11 +50,7 @@ function Services() {
           image={array[0]}
           alt="International Relocation"
           title="International Relocation"
-          description="ATD specializes in seamless international relocations. Our expert
-           team manages the complexities of moving across borders, handling packing, documentation,
-            customs procedures, and transportation logistics. 
-          Whether it's for individuals, families, or businesses, trust us for a smooth
-           transition to your new international destination."
+          description="ATD specializes in effortless international relocations for individuals, families, and businesses moving from Norway. Our seasoned team handles packing, documentation, customs procedures, and transportation logistics, ensuring a smooth transition to your new international destination. Trust ATD for a seamless and stress-free relocation experience tailored to your needs."
         />
         <ServiceCard
           reverse={true}
@@ -63,21 +59,14 @@ function Services() {
           image={array[1]}
           alt="Transportation"
           title="Transportation & Storage"
-          description="Our international transportation services guarantee the safe and 
-          timely delivery of your belongings to any corner of the globe. With a focus
-           on reliability and security, we offer comprehensive door-to-door shipping 
-           solutions. Additionally, our secure storage options cater to your short or 
-           long-term needs, ensuring the safety of your possessions during the relocation process."
+          description="Our international transportation services guarantee the safe and timely delivery of your belongings to any corner of the globe. With a focus on reliability and security, we offer comprehensive door-to-door shipping solutions. Additionally, our secure storage options cater to your short or long-term needs, ensuring the safety of your possessions during the relocation process."
         />
         <ServiceCard
           number="03"
           image={array[2]}
           alt="Cleaning Services"
           title="Cleaning Services"
-          description="ATD's professional cleaning services ensure that your previous
-           or new international space meets the highest standards of cleanliness. Our
-            meticulous cleaning process prepares your space, ensuring a welcoming and
-             fresh environment upon arrival at your new destination."
+          description="ATD's professional cleaning services ensure that your previous or new international space meets the highest standards of cleanliness. Our meticulous cleaning process prepares your space, ensuring a welcoming and fresh environment upon arrival at your new destination."
         />
         <ServiceCard
           reverse={true}
@@ -87,19 +76,14 @@ function Services() {
           alt="Air flight Services"
           title="Air flight Services"
           description="For urgent or long-distance international moves, 
-          our air travel services offer expedited and secure transportation of your belongings.
-           We prioritize efficiency and reliability in arranging air freight, ensuring
-            your possessions reach their destination promptly."
+          our air travel services offer expedited and secure transportation of your belongings. We prioritize efficiency and reliability in arranging air freight, ensuring your possessions reach their destination promptly."
         />
         <ServiceCard
           number="05"
           image={array[4]}
           alt="Transportation by Sea, Air or Road"
           title="Transportation by Sea, Air or Road"
-          description="For urgent or long-distance international moves, our air travel
-           services offer expedited and secure transportation of your belongings.
-            We prioritize efficiency and reliability in arranging air freight,
-             ensuring your possessions reach their destination promptly."
+          description="ATD excels in transporting your belongings seamlessly from Norway—be it by sea, air, or road. Trust us for reliable and secure solutions tailored to your needs. Your worry-free journey begins with ATD."
         />
         <ServiceCard
           reverse={true}
@@ -108,22 +92,14 @@ function Services() {
           image={array[5]}
           alt="Door to Door"
           title="Door to Door"
-          description="Our door-to-door transportation services ensure the safe and
-           efficient movement of your possessions worldwide. Whether by sea, air,
-            or road, we offer comprehensive shipping solutions tailored to your
-             international relocation needs. From your current doorstep to your
-              new location, trust us to handle every step of the journey seamlessly."
+          description="Our door-to-door transportation services ensure the safe and efficient movement of your possessions worldwide. Whether by sea, air, or road, we offer comprehensive shipping solutions tailored to your international relocation needs. From your current doorstep to your new location, trust us to handle every step of the journey seamlessly."
         />
         <ServiceCard
           number="07"
           image={array[6]}
           alt="Agent & Network"
           title="Agent & Network"
-          description="With a robust global network and dedicated agents, ATD
-           streamlines the complexities of international relocations. Our
-            team collaborates efficiently with our network partners,
-             providing guidance on legalities, local regulations, and cultural
-              nuances, ensuring a seamless transition into your new international location."
+          description="In Norway, our door-to-door transportation services guarantee the safe and efficient movement of your possessions worldwide. Trust us to seamlessly handle every step of the journey, ensuring a smooth transition from your current doorstep to your new location."
         />
         <ServiceCard
           reverse={true}
@@ -132,11 +108,7 @@ function Services() {
           image={array[7]}
           alt="Survey & Quotation"
           title="Survey & Quotation"
-          description="ATD conducts thorough surveys and provides transparent
-           quotations specifically tailored for international relocations.
-            Our meticulous assessments and detailed cost breakdowns empower
-             you with comprehensive information, allowing you to make informed
-              decisions about your international move, considering all aspects and expenses involved."
+          description="ATD conducts thorough surveys and provides transparent quotations specifically tailored for international relocations. Our meticulous assessments and detailed cost breakdowns empower you with comprehensive information, allowing you to make informed decisions about your international move, considering all aspects and expenses involved."
         />
       </div>
       {/* ready section  */}

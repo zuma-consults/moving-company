@@ -39,6 +39,25 @@ function Quotes() {
   const isAlternateEmailAddressInvalid = alternateEmailAddress.trim() === "";
   const isTermsInvalid = terms === false;
 
+  const [showOtherInput, setShowOtherInput] = useState(false);
+  const [otherItem, setOtherItem] = useState("");
+
+  // ...
+
+  // Modify the handleMovingItemsChange function to show the additional input when "Others(Please specify)" is selected
+  const handleMovingItemsChange = (event) => {
+    const selectedValue = event.target.value;
+
+    // Check if the selected value is "Others(Please specify)"
+    if (selectedValue === "Others(Please specify)") {
+      setShowOtherInput(true);
+    } else {
+      setShowOtherInput(false);
+    }
+
+    setMovingItems(selectedValue);
+  };
+
   const validationConditions = [
     {
       condition: isMovingFromCountryInvalid,
@@ -273,14 +292,37 @@ function Quotes() {
                 className="p-5 border rounded-[1rem] "
                 name="Moving Date"
               />
-              <input
-                className="p-5 border rounded-[1rem] "
-                type="text"
-                placeholder="What are you moving?"
-                onChange={(e) => setMovingItems(e.target.value)}
+              <div className={showOtherInput ? "grid grid-cols-2 gap-2" : "grid"}>
+              <select
+                className="p-5 border rounded-[1rem]"
+                onChange={handleMovingItemsChange}
                 value={movingItems}
                 name="Moving Items"
-              />
+              >
+                <option>What are you moving?</option>
+                <option value="A few small items/boxes">
+                  A few small items/boxes
+                </option>
+                <option value="1-2 bedroom home">1-2 bedroom home</option>
+                <option value="2 - 3 bedroom home">2 - 3 bedroom home</option>
+                <option value="4+ bedrooms">4+ bedrooms</option>
+                <option value="Others(Please specify)">
+                  Others(Please specify)
+                </option>
+              </select>
+
+              {showOtherInput && (
+                <input
+                  className="p-5 border rounded-[1rem]"
+                  type="text"
+                  placeholder="Specify other items"
+                  onChange={(e) => setOtherItem(e.target.value)}
+                  value={otherItem}
+                  name="Specified items to be moved"
+                />
+              )}
+              </div>
+             
             </div>
             {/* button section */}
             <div className="flex items-center justify-end">
