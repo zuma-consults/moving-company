@@ -29,19 +29,27 @@ function GuideIdPage() {
     }
   }, [id]);
 
+  const renderContentWithLineBreaks = () => {
+    if (!post) return null;
+  
+    const contentWithLineBreaks = post.content.rendered.replace(/\n/g, "<hr class='my-1 border-transparent'>");
+    return { __html: contentWithLineBreaks };
+  };
+
   return (
     <main className="w-full h-full">
       {loading && <Loader />}
-      <div className="md:p-20 p-7 m-auto flex items-center justify-center flex-col mt-[100px]">
+      <div className="md:p-20 p-7 md:w-[60%]  m-auto flex items-center justify-center flex-col mt-[100px]">
         <div
           className="flex items-center mb-10 capitalize justify-start text-gray-600 text-5xl font-extrabold h-full"
           dangerouslySetInnerHTML={{ __html: post?.title?.rendered }}
         />
         {post && (
           <div
-            className="md:w-[60%] leading-10"
+            className="leading-10"
+            style={{ marginBottom: "10px" }} 
             key={post.id}
-            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+            dangerouslySetInnerHTML={renderContentWithLineBreaks()}
           />
         )}
       </div>
