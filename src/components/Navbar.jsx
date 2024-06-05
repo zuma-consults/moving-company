@@ -20,7 +20,6 @@ function Navbar() {
   };
 
   const isLinkActive = (path) => {
-    // Check if the current location pathname contains the specified path
     return location.pathname.includes(path);
   };
 

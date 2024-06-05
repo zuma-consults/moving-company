@@ -27,13 +27,13 @@ function Footer() {
             />
           </span>
           <div className="text-white flex gap-2">
-            <FaPhoneAlt /> <span>+47 947 21 965</span>
+            <FaPhoneAlt /> <span>±47 48669292</span>
           </div>
           <div className="text-white flex gap-2">
             <FaLocationDot /> <span>Karl staaffs vei 82, 0665 Oslo</span>
           </div>
           <div className="text-white flex gap-2">
-            <IoMdMail /> <span>Atdoslo@yahoo.com</span>
+            <IoMdMail /> <span>info@atdlogisticsintl.com</span>
           </div>
         </div>
         <div className="text-white flex flex-col gap-2">
