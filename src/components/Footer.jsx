@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { IoLogoInstagram } from "react-icons/io5";
 // import { FaXTwitter } from "react-icons/fa6";
 import { FiLinkedin } from "react-icons/fi";
+import { FaRegIdCard } from "react-icons/fa6";
 
 function Footer() {
   const location = useLocation();
@@ -26,13 +27,16 @@ function Footer() {
               className="md:w-[150px] lg:w-[200px]"
             />
           </span>
-          <div className="text-white flex gap-2">
+          <div className="text-white flex items-center gap-2">
             <FaPhoneAlt /> <span>±47 48669292</span>
           </div>
-          <div className="text-white flex gap-2">
+          <div className="text-white items-center flex gap-2">
+            <FaRegIdCard /> <span>933 191 435</span>
+          </div>
+          <div className="text-white items-center flex gap-2">
             <FaLocationDot /> <span>Karl staaffs vei 82, 0665 Oslo</span>
           </div>
-          <div className="text-white flex gap-2">
+          <div className="text-white items-center flex gap-2">
             <IoMdMail /> <span>info@atdlogisticsintl.com</span>
           </div>
         </div>
