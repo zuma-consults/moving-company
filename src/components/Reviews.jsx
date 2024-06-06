@@ -31,8 +31,9 @@ function Reviews() {
             />
           </div>
           <div className="flex items-center justify-center p-5 leading-10 text-gray-500 text-center h-full">
-            &quot;ADT Logistics can simplify and facilitate every relocation
-            hassle and detail, Highly recommended&quot;
+            &quot;“The driver was absolutely amazing, knowlegeable, courteous
+            and professional. He knew exactly what i needed right down to know
+            how my items needed to be seperated at burlington storage”&quot;
           </div>
           <div className="w-full pr-5 flex items-center justify-end">
             <span className="bg-mc-primary2 p-[.5px] w-[40px] mr-2"></span>
@@ -63,8 +64,8 @@ function Reviews() {
             />
           </div>
           <div className="flex items-center justify-center p-5 leading-10 text-gray-500 text-center h-full">
-            {} &quot;ADT Logistics can simplify and facilitate every relocation
-            hassle and detail, Highly recommended&quot;
+            {} &quot;“The movers were very professional and helpful to me in
+            this stressful time”&quot;
           </div>
           <div className="w-full pr-5 flex items-center justify-end">
             <span className="bg-mc-primary2 p-[.5px] w-[40px] mr-2"></span>
@@ -95,8 +96,9 @@ function Reviews() {
             />
           </div>
           <div className="flex items-center justify-center p-5 leading-10 text-gray-500 text-center h-full">
-            &quot;ADT Logistics can simplify and facilitate every relocation
-            hassle and detail, Highly recommended&quot;
+            &quot;“Excellent origin service, pulling things out of difficult
+            spots. Excellent destination services, getting large heavy items
+            through small doors”&quot;
           </div>
           <div className="w-full pr-5 flex items-center justify-end">
             <span className="bg-mc-primary2 p-[.5px] w-[40px] mr-2"></span>
@@ -104,10 +106,6 @@ function Reviews() {
           </div>
         </div>
       </div>
-      {/* <div className="w-full flex gap-2 items-center justify-end cursor-pointer text-mc-primary1">
-        <span>View more</span>
-        <FaArrowRightLong className="font-thin" />
-      </div> */}
     </div>
   );
 }

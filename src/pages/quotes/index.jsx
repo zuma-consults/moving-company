@@ -4,9 +4,7 @@ import { useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import emailjs from "@emailjs/browser";
-import { useForm } from "@formspree/react";
 import { countries } from "./data";
-import Loader from "../../components/Loader";
 import { toast } from "react-toastify";
 import Tooltips from "../../components/Tooltip";
 
@@ -206,10 +204,7 @@ function Quotes() {
 
   return (
     <main className="w-full">
-      {/* navbar section */}
       <form onSubmit={handleSubmit} ref={formRef}>
-        {/*1st Get a Quote */}
-        {/* {active === 1 ? ( */}
         <div
           className={`bg-whitesmoke mt-[100px] ${active !== 1 && "hidden"}`}
           data-aos="slide-up"
@@ -350,9 +345,6 @@ function Quotes() {
             <p className="text-mc-#898989 text-[28px] cursor-pointer"> 03 </p>
           </div>
         </div>
-        {/* ) : null} */}
-        {/*2nd Get a Quote */}
-        {/* {active === 2 ? ( */}
         <div className={`bg-whitesmoke mt-[100px] ${active !== 2 && "hidden"}`}>
           {/* header section */}
           <div className="md:px-20 md:my-10 px-5">
@@ -455,8 +447,6 @@ function Quotes() {
             <p className="text-mc-#898989 text-[28px] cursor-pointer"> 03 </p>
           </div>
         </div>
-        {/*3rd Get a Quote */}
-        {/* {active === 3 ? ( */}
         <div className={`bg-whitesmoke mt-[100px] ${active !== 3 && "hidden"}`}>
           {/* header section */}
           <div className="md:px-20 md:my-10 px-5">
@@ -614,8 +604,6 @@ function Quotes() {
             <p className="text-mc-#27272B text-[28px] cursor-pointer"> 03 </p>
           </div>
         </div>
-        {/* ) : (<div></div>
-        )} */}
       </form>
     </main>
   );
