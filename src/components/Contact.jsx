@@ -1,16 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useForm } from "@formspree/react";
+import emailjs from "@emailjs/browser";
 import Loader from "./Loader";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// eslint-disable-next-line react/prop-types, no-unused-vars
 function Contact({ contactImg, showTop, showBottom }) {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const formRef = useRef();
+
   const [checkboxes, setCheckboxes] = useState({
     moving: false,
     relocation: false,
@@ -19,20 +21,15 @@ function Contact({ contactImg, showTop, showBottom }) {
     agentSupport: false,
     others: false,
   });
-  const [state, handleSubmit] = useForm("mgegekgl");
 
-  if (state.succeeded) {
-    toast("Message Successfully sent! we will speak with you soon");
-  }
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
-  if (state.submitting) {
-    return <Loader />;
-  }
-
-  if (state.errors) {
-    // console.log(state.errors.formErrors[0].message);
-    toast.error(`Error: ${state.errors.formErrors[0].message}`);
-  }
+  const [loading, setLoading] = useState(false);
 
   const handleCheckboxChange = (checkboxName) => {
     setCheckboxes((prevCheckboxes) => ({
@@ -40,27 +37,80 @@ function Contact({ contactImg, showTop, showBottom }) {
       [checkboxName]: !prevCheckboxes[checkboxName],
     }));
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const services = Object.keys(checkboxes)
+      .filter((key) => checkboxes[key])
+      .map((key) => key.charAt(0).toUpperCase() + key.slice(1));
+
+    const emailData = {
+      ...formData,
+      services: services.join(", "),
+      to_email: "admin@atdlogisticsintl.com", // Adding the recipient email address
+    };
+
+    emailjs
+      .send(
+        "service_2cq9w0o", // Your EmailJS service ID
+        "template_a6focrn", // Your EmailJS template ID
+        emailData,
+        "lqjgQ8sq97WjNqJS2" // Your EmailJS user ID
+      )
+      .then(
+        (result) => {
+          toast("Message Successfully sent! We will speak with you soon");
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+          setCheckboxes({
+            moving: false,
+            relocation: false,
+            transportation: false,
+            cleaningService: false,
+            agentSupport: false,
+            others: false,
+          });
+          setLoading(false);
+        },
+        (error) => {
+          toast.error(`Error: ${error.text}`);
+          setLoading(false);
+        }
+      );
+  };
+
   return (
     <div
       data-aos="fade-left"
       data-aos-duration="500"
       data-aos-easing="ease-in-out"
-      className=" w-full flex items-center justify-center flex-col my-10 md:px-20 p-3"
+      className="w-full flex items-center justify-center flex-col my-10 md:px-20 p-3"
     >
       <div className="w-full bg-white">
         <div className="w-full grid md:grid-cols-2">
-          {" "}
           <div className="md:p-5 md:px-20 p-5 shadow-lg h-full flex items-center justify-center flex-col gap-3">
             <div className="flex items-center justify-center gap-10">
               <span className="bg-gray-600 p-[.5px] w-[40px]"></span>
               <div>
-                {" "}
                 <h1 className="font-normal h-full md:text-[30px] text-[30px]">
                   Contact Us
                 </h1>
                 {showTop && <p className="text-gray-600">How can we help?</p>}
               </div>
-
               <span className="bg-gray-600 p-[.5px] w-[40px]"></span>
             </div>
             <p className="text-center text-[14px] text-gray-500 mb-2">
@@ -70,6 +120,7 @@ function Contact({ contactImg, showTop, showBottom }) {
             </p>
 
             <form
+              ref={formRef}
               className="w-full grid gap-3 text-gray-600"
               onSubmit={handleSubmit}
             >
@@ -79,6 +130,8 @@ function Contact({ contactImg, showTop, showBottom }) {
                 name="name"
                 required
                 className="bg-[#F5F5F5] w-full p-2"
+                value={formData.name}
+                onChange={handleInputChange}
               />
               <input
                 type="email"
@@ -87,6 +140,8 @@ function Contact({ contactImg, showTop, showBottom }) {
                 id="email"
                 name="email"
                 className="bg-[#F5F5F5] w-full p-2"
+                value={formData.email}
+                onChange={handleInputChange}
               />
               <input
                 type="text"
@@ -94,6 +149,8 @@ function Contact({ contactImg, showTop, showBottom }) {
                 placeholder="Phone Number"
                 name="phone"
                 className="bg-[#F5F5F5] w-full p-2"
+                value={formData.phone}
+                onChange={handleInputChange}
               />
               <span>services:</span>
               <div className="flex items-center gap-4 flex-wrap">
@@ -106,7 +163,6 @@ function Contact({ contactImg, showTop, showBottom }) {
                   />
                   Moving
                 </label>
-
                 <label>
                   <input
                     type="checkbox"
@@ -116,7 +172,6 @@ function Contact({ contactImg, showTop, showBottom }) {
                   />
                   Relocation
                 </label>
-
                 <label>
                   <input
                     type="checkbox"
@@ -126,7 +181,6 @@ function Contact({ contactImg, showTop, showBottom }) {
                   />
                   Transportation
                 </label>
-
                 <label>
                   <input
                     type="checkbox"
@@ -136,7 +190,6 @@ function Contact({ contactImg, showTop, showBottom }) {
                   />
                   Cleaning Service
                 </label>
-
                 <label>
                   <input
                     type="checkbox"
@@ -146,7 +199,6 @@ function Contact({ contactImg, showTop, showBottom }) {
                   />
                   Agent Support
                 </label>
-
                 <label>
                   <input
                     type="checkbox"
@@ -165,11 +217,13 @@ function Contact({ contactImg, showTop, showBottom }) {
                 required
                 placeholder="Send Message"
                 className="bg-[#F5F5F5] w-full p-2"
+                value={formData.message}
+                onChange={handleInputChange}
               />
               <input
                 type="submit"
                 placeholder="Send"
-                disabled={state.submitting}
+                disabled={loading}
                 className="bg-mc-primary1 text-white font-semibold w-full p-2"
               />
             </form>
