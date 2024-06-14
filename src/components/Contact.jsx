@@ -152,7 +152,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                 value={formData.phone}
                 onChange={handleInputChange}
               />
-              <span>services:</span>
+              <span>Services:</span>
               <div className="flex items-center gap-4 flex-wrap">
                 <label>
                   <input
@@ -160,6 +160,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                     name="moving"
                     checked={checkboxes.moving}
                     onChange={() => handleCheckboxChange("moving")}
+                    className="me-1"
                   />
                   Moving
                 </label>
@@ -169,6 +170,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                     name="relocation"
                     checked={checkboxes.relocation}
                     onChange={() => handleCheckboxChange("relocation")}
+                    className="me-1"
                   />
                   Relocation
                 </label>
@@ -178,6 +180,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                     name="trasportation"
                     checked={checkboxes.transportation}
                     onChange={() => handleCheckboxChange("transportation")}
+                    className="me-1"
                   />
                   Transportation
                 </label>
@@ -187,6 +190,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                     checked={checkboxes.cleaningService}
                     name="cleaningService"
                     onChange={() => handleCheckboxChange("cleaningService")}
+                    className="me-1"
                   />
                   Cleaning Service
                 </label>
@@ -196,6 +200,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                     checked={checkboxes.agentSupport}
                     name="agentSupport"
                     onChange={() => handleCheckboxChange("agentSupport")}
+                    className="me-1"
                   />
                   Agent Support
                 </label>
@@ -205,6 +210,7 @@ function Contact({ contactImg, showTop, showBottom }) {
                     checked={checkboxes.others}
                     name="others"
                     onChange={() => handleCheckboxChange("others")}
+                    className="me-1"
                   />
                   Others
                 </label>
