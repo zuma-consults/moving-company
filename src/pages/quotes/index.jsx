@@ -25,7 +25,7 @@ function Quotes() {
   const [alternateEmailAddress, setAlternateEmailAddress] = useState("");
   const [message, setMessage] = useState("");
   const [terms, setTerms] = useState(false);
-
+  const [shouldSubit, setShouldSubmit] = useState(false);
   const isMovingDateInvalid = movingDate.trim() === "";
   const isMovingItemsInvalid = movingItems.trim() === "";
   const isMovingFromCityInvalid = movingFromCity.trim() === "";
@@ -183,23 +183,25 @@ function Quotes() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_2cq9w0o",
-        "template_lcdckbh",
-        formRef.current,
-        // data,
-        "lqjgQ8sq97WjNqJS2"
-      )
-      .then(
-        (result) => {
-          toast("Message Successfully sent! We will speak with you soon");
-          clearFormData();
-        },
-        (error) => {
-          toast.error("Failed to send message. Please try again later.");
-        }
-      );
+    if (shouldSubit) {
+      emailjs
+        .sendForm(
+          "service_2cq9w0o",
+          "template_lcdckbh",
+          formRef.current,
+          // data,
+          "lqjgQ8sq97WjNqJS2"
+        )
+        .then(
+          (result) => {
+            toast("Message Successfully sent! We will speak with you soon");
+            clear();
+          },
+          (error) => {
+            toast.error("Failed to send message. Please try again later.");
+          }
+        );
+    }
   };
 
   return (
@@ -574,6 +576,7 @@ function Quotes() {
             <button
               type="submit"
               data-tooltip-id="next"
+              onClick={() => setShouldSubmit(true)}
               className={`w-fit flex items-center text-#66676A p-5 rounded md:mx-28 mb-10 
              ${!terms ? "cursor-not-allowed" : "cursor-pointer"}
              hover:text-white hover:bg-black 
